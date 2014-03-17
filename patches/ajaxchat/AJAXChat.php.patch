@@ -1,0 +1,61 @@
+--- AJAXChat.php	2014-01-10 21:00:34.000000000 +0100
++++ AJAXChat.php	2014-02-07 12:51:46.422234897 +0100
+@@ -760,7 +760,12 @@
+ 				case '/nick':				
+ 					$this->insertParsedMessageNick($textParts);
+ 					break;
+-			
++
++				// Youtube:
++				case '/yt':				
++					$this->insertParsedMessageYT($textParts);
++					break;
++		
+ 				// Custom or unknown command:
+ 				default:
+ 					if(!$this->parseCustomCommands($text, $textParts)) {				
+@@ -3322,5 +3327,43 @@
+ 		return $this->_allChannels;
+ 	}
+ 
++	// Youtube
++	function insertParsedMessageYT($textParts) {
++		if(count($textParts) == 2){
++			//Grabs the youtubeID
++			parse_str( parse_url( $textParts[1], PHP_URL_QUERY ), $my_array_of_vars );
++			if ($my_array_of_vars['v'] != '' ||$my_array_of_vars['v'] != null){
++				//ChatbotDisplay Message
++				$YTembedLink = 'http://www.youtube.com/embed/'.$my_array_of_vars['v'].'?rel=0&border=0&autoplay=1';
++
++				$ch = curl_init();
++				curl_setopt($ch, CURLOPT_URL, 'http://gdata.youtube.com/feeds/api/videos/'.$my_array_of_vars['v']);
++				curl_setopt($ch, CURLOPT_HEADER, 0);
++				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
++				$response = curl_exec($ch);
++				curl_close($ch);
++				if ($response) {
++					$xml   = new SimpleXMLElement($response);
++					$YouTubetitle = (string) $xml->title;
++				} else {
++					// Error handling.
++				}
++
++				$this->insertCustomMessage(
++					$this->getUserID(),
++					$this->getUserName(),
++					$this->getUserRole(),
++					$this->getChannel(),
++				$YouTubetitle.' '.$YTembedLink
++				);
++			}
++			else{
++				//ERROR not valid Link
++			}
++		}
++		else{
++			//ERROR not valid Link
++		}
++	}
+ }
+ ?>
+\ No newline at end of file

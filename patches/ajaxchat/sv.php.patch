@@ -1,0 +1,38 @@
+--- sv.php	2014-01-10 21:00:34.000000000 +0100
++++ sv.php	2014-02-07 16:43:33.130844900 +0100
+@@ -10,8 +10,8 @@
+ 
+ $lang = array();
+ $lang['title']				= 'AJAX Chat';
+-$lang['userName']			= 'Användarnamn';
+-$lang['password']			= 'Lösenord';
++$lang['userName']			= 'Skriv ditt namn du vill ha i chatten eller klicka bara på Logga In knappen';
++$lang['password']			= 'Lösenord (OBS: Lämna lösenordsfältet tomt om du EJ har ett chattkonto)';
+ $lang['login']				= 'Logga In';
+ $lang['logout']				= 'Logga Ut';
+ $lang['channel']			= 'Kanal';
+@@ -19,7 +19,7 @@
+ $lang['language']			= 'Språk';
+ $lang['inputLineBreak']			= 'Håll ner SHIFT+ENTER för att göra ett radbryt';
+ $lang['messageSubmit']			= 'Skicka';
+-$lang['registeredUsers']		= 'Registerade Användare';
++$lang['registeredUsers']		= 'Detta chattkonto har INGET med ditt forumkonto att göra. Skriv bara ditt namn och klicka på "Logga In" knappen.';
+ $lang['onlineUsers']			= 'Användare OnLine';
+ $lang['toggleAutoScroll']		= 'Autoscroll av/på';
+ $lang['toggleAudio']			= 'Ljud av/på';
+@@ -32,6 +32,7 @@
+ $lang['bbCodeLabelQuote']		= 'Citera';
+ $lang['bbCodeLabelCode']		= 'Kod';
+ $lang['bbCodeLabelURL']			= 'URL';
++$lang['bbCodeLabelYT']			= 'Youtube';
+ $lang['bbCodeLabelImg']			= 'Image';
+ $lang['bbCodeLabelColor']		= 'Textfärg';
+ $lang['bbCodeTitleBold']		= 'Fet text: [b]text[/b]';
+@@ -40,6 +41,7 @@
+ $lang['bbCodeTitleQuote']		= 'Citera text: [quote]text[/quote] or [quote=author]text[/quote]';
+ $lang['bbCodeTitleCode']		= 'Visa kod: [code]code[/code]';
+ $lang['bbCodeTitleURL']			= 'Lägg till URL: [url]http://www.example.org/[/url] or [url=http://www.example.org/]text[/url]';
++$lang['bbCodeTitleYT']			= 'Lägg in en Youtube länk';
+ $lang['bbCodeTitleImg']			= 'Infoga bild: [img]http://example.org/image.jpg[/img]';
+ $lang['bbCodeTitleColor']		= 'Textfärg: [color=red]text[/color]';
+ $lang['help']				= 'Hjälp';

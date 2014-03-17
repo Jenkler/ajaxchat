@@ -1,0 +1,37 @@
+--- en.php	2014-01-10 21:00:34.000000000 +0100
++++ en.php	2014-03-04 19:48:02.046076559 +0100
+@@ -9,8 +9,8 @@
+ 
+ $lang = array();
+ $lang['title'] = 'AJAX Chat';
+-$lang['userName'] = 'Username';
+-$lang['password'] = 'Password';
++$lang['userName'] = 'Enter your name you want in the chat or just click the Login button:';
++$lang['password'] = 'Password (NOTE: Leave field blank if you do NOT have a chat account)';
+ $lang['login'] = 'Login';
+ $lang['logout'] = 'Logout';
+ $lang['channel'] = 'Channel';
+@@ -18,7 +18,7 @@
+ $lang['language'] = 'Language';
+ $lang['inputLineBreak'] = 'Press SHIFT+ENTER to input a line break';
+ $lang['messageSubmit'] = 'Submit';
+-$lang['registeredUsers'] = 'Registered Users';
++$lang['registeredUsers'] = 'This chat account has NOTHING to do with your forum account. Just type your name and click "Login" button.';
+ $lang['onlineUsers'] = 'Online users';
+ $lang['toggleAutoScroll'] = 'Autoscroll on/off';
+ $lang['toggleAudio'] = 'Sound on/off';
+@@ -31,6 +31,7 @@
+ $lang['bbCodeLabelQuote'] = 'Quote';
+ $lang['bbCodeLabelCode'] = 'Code';
+ $lang['bbCodeLabelURL'] = 'URL';
++$lang['bbCodeLabelYT'] = 'Youtube';
+ $lang['bbCodeLabelImg'] = 'Image';
+ $lang['bbCodeLabelColor'] = 'Font Color';
+ $lang['bbCodeTitleBold'] = 'Bold text: [b]text[/b]';
+@@ -120,4 +121,4 @@
+ $lang['logsSearch'] = 'Search';
+ $lang['logsPrivateChannels'] = 'Private Channels';
+ $lang['logsPrivateMessages'] = 'Private Messages';
+-?>
+\ No newline at end of file
++?>

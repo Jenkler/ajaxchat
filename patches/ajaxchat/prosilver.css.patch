@@ -1,0 +1,11 @@
+--- prosilver.css	2014-01-10 21:00:34.000000000 +0100
++++ prosilver.css	2014-02-04 00:48:14.244961131 +0100
+@@ -100,7 +100,7 @@
+ 		background: #0c95d9;
+ 	}
+ 	#content #copyright, #content #copyright a {
+-		color: white;
++		color: #cccccc;
+ 	}
+ 	#content {
+ 		background-color:#F9F9F9;

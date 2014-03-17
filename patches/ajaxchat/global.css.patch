@@ -1,0 +1,62 @@
+--- global.css	2014-01-10 21:00:34.000000000 +0100
++++ global.css	2014-02-07 20:18:21.515410235 +0100
+@@ -7,6 +7,32 @@
+  * @link https://blueimp.net/ajax/
+  */
+ 
++#header
++{
++	background-color: #f0f0f0; height: 200px; margin: 0 auto;
++	padding: 10px; width: 600px;
++}
++#slider
++{
++	-moz-border-radius-bottomright: 20px; -moz-border-radius-bottomleft: 20px;
++	background-color: #f9f9f9; border: 1px solid #ababab; border-bottom-right-radius: 20px;
++	border-bottom-left-radius: 20px; border-top: 0px; height: 365px; margin-top: -366px; position: absolute;
++	width: 510px; z-index: 1000;
++}
++#slider img { border: 0px; }
++#sliderContent
++{
++	background-color: #ffffcc; color: #333333; font-weight: bold; margin: 50px 0 0 50px;
++	padding: 10px; position: absolute; text-align: center;
++}
++#sliderWrap { margin: 0 auto; width: 500px; z-index: 500; }
++#openCloseWrap
++{
++	font-size:12px; font-weight: bold; left: 15px;
++	position: absolute; top:0;
++}
++#video { margin-left: 15px; margin-top: 30px; }
++
+ /* Positioning */
+ #loginContent {
+ 	position:absolute;
+@@ -36,7 +62,7 @@
+ #content #copyright {
+ 	position:absolute;
+ 	right:20px;
+-	top:20px;
++	top:335px;
+ }
+ #content #headlineContainer {
+ 	position:absolute;
+@@ -63,7 +89,7 @@
+ 	position:absolute;
+ 	left:20px;
+ 	right:230px;
+-	top:85px;
++	top:10px;
+ 	bottom:150px;
+ 	overflow:auto;
+ }
+@@ -82,7 +108,7 @@
+ #content #onlineListContainer {
+ 	position:absolute;
+ 	right:20px;
+-	top:85px;
++	top:10px;
+ 	width:200px;
+ 	bottom:150px;
+ }

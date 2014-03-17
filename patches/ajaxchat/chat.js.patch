@@ -1,0 +1,66 @@
+--- chat.js	2014-01-10 21:00:34.000000000 +0100
++++ chat.js	2014-02-07 16:20:17.234783670 +0100
+@@ -1254,6 +1254,40 @@
+ 		}
+ 		var dateTime = this.settings['dateFormat'] ? '<span class="dateTime">'
+ 						+ this.formatDate(this.settings['dateFormat'], dateObject) + '</span> ' : '';
++		var finaltext;
++		if(messageText.indexOf('youtube.com/embed') != -1){
++			if(!arguments.callee.regExp) {
++				arguments.callee.regExp = new RegExp(
++					'(^|\\s|>)((?:(?:http)|(?:https)|(?:ftp)|(?:irc)):\\/\\/[^\\s<>]+)(<\\/a>)?',
++					'gm'
++				);
++			}
++			var FINALyoutubetitle;
++			var FINALyoutubelink;
++			finaltext = messageText.replace(
++				arguments.callee.regExp,
++				// Specifying an anonymous function as second parameter:
++				function(str, p1, p2, p3) {
++					// Do not replace URL's inside URL's:
++					FINALyoutubetitle = messageText.substring(0, messageText.length-p2.length);
++					FINALyoutubelink = p2.replace(/&/gi, '&amp;');
++					if(p3) {
++						return str;
++					}
++					return 	p1
++							+ '<a href="#" onclick="youtubeJS(\'' + FINALyoutubelink + '\')">'
++							+ '<img src="img/youtube.png" alt="YOUTUBE" />'
++							+ ' ' + FINALyoutubetitle + ''
++							+ '<img src="img/youtube.png" alt="YOUTUBE" />'
++							+ '</a>';
++				}
++			);
++			finaltext = finaltext.substring(FINALyoutubetitle.length);
++		}
++		else{
++			finaltext = this.replaceText(messageText);
++		}
++
+ 		return	'<div id="'
+ 				+ this.getMessageDocumentID(messageID)
+ 				+ '" class="'
+@@ -1271,7 +1305,7 @@
+ 				+ userName
+ 				+ '</span>'
+ 				+ colon
+-				+ this.replaceText(messageText)
++				+ finaltext
+ 				+ '</div>';
+ 	},
+ 	
+@@ -1983,6 +2017,13 @@
+ 				else
+ 					this.dom['inputField'].focus();
+ 				break;
++			case 'yt':
++				var yt = prompt(this.lang['urlDialog']);
++				if(yt)
++					this.sendMessage(this.getScriptLinkValue('/yt ' + yt));
++				else
++					this.dom['inputField'].focus();
++				break;
+ 			default:
+ 				this.insert('[' + bbCode + ']', '[/' + bbCode + ']');		
+ 		}

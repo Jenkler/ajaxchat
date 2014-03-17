@@ -1,0 +1,44 @@
+--- loggedOut.html	2014-01-10 21:00:34.000000000 +0100
++++ loggedOut.html	2014-02-07 13:44:15.546373030 +0100
+@@ -42,36 +42,24 @@
+ </head>
+ 
+ <body onload="initializeLoginPage();">
+-	<div id="loginContent">
+-		<div id="loginHeadlineContainer">
+-			<h1>[LANG]title[/LANG]</h1>
+-		</div>
++	<div id="loginContent" style="padding-left: 100px; padding-top:100px;">
+ 		<form id="loginForm" action="[LOGIN_URL/]" method="post" enctype="application/x-www-form-urlencoded">
+ 			<div id="loginFormContainer">
+ 				<input type="hidden" name="login" id="loginField" value="login"/>
+ 				<input type="hidden" name="redirect" id="redirectField" value="[REDIRECT_URL/]"/>
+ 				<div><label for="userNameField">[LANG]userName[/LANG]:</label><br />
+-				<input type="text" name="userName" id="userNameField" maxlength="[USER_NAME_MAX_LENGTH/]"/></div>
++				<input type="text" name="userName" id="userNameField" maxlength="[USER_NAME_MAX_LENGTH/]" style="width: 500px;"/></div>
+ 				<div><label for="passwordField">[LANG]password[/LANG]*:</label><br />
+-				<input type="password" name="password" id="passwordField"/></div>
+-				<div><label for="channelField">[LANG]channel[/LANG]:</label><br />
++				<input type="password" name="password" id="passwordField" style="width: 500px;"/></div>
++				<!--<div><label for="channelField">[LANG]channel[/LANG]:</label><br />
+ 				<select name="channelName" id="channelField">[CHANNEL_OPTIONS/]</select></div>
+ 				<div><label for="languageSelection">[LANG]language[/LANG]:</label><br />
+-				<select id="languageSelection" name="lang" onchange="ajaxChat.switchLanguage(this.value);">[LANGUAGE_OPTIONS/]</select></div>
++				<select id="languageSelection" name="lang" onchange="ajaxChat.switchLanguage(this.value);">[LANGUAGE_OPTIONS/]</select></div>-->
+ 				<div><input type="submit" name="submit" id="loginButton" value="[LANG]login[/LANG]"/></div>
+ 				<div id="loginRegisteredUsers">* [LANG]registeredUsers[/LANG]</div>
+ 			</div>
+ 		</form>
+ 		<div id="errorContainer">[ERROR_MESSAGES/]<noscript><div>[LANG]requiresJavaScript[/LANG]</div></noscript></div>
+-		<!--
+-			Please retain the full copyright notice below including the link to blueimp.net.
+-			This not only gives respect to the amount of time given freely by the developer
+-			but also helps build interest, traffic and use of AJAX Chat.
+-			
+-			Thanks,
+-			Sebastian Tschan
+-		//-->
+-		<div id="copyright"><a href="https://blueimp.net/ajax/">AJAX Chat</a> &copy; <a href="https://blueimp.net">blueimp.net</a></div>
+ 	</div>
+ </body>
+ 
