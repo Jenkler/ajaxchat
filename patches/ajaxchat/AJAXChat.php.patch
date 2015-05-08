@@ -1,5 +1,5 @@
 --- AJAXChat.php	2014-01-10 21:00:34.000000000 +0100
-+++ AJAXChat.php	2014-02-07 12:51:46.422234897 +0100
++++ AJAXChat.php	2015-05-08 13:14:01.411495107 +0200
 @@ -760,7 +760,12 @@
  				case '/nick':				
  					$this->insertParsedMessageNick($textParts);
@@ -14,7 +14,7 @@
  				// Custom or unknown command:
  				default:
  					if(!$this->parseCustomCommands($text, $textParts)) {				
-@@ -3322,5 +3327,43 @@
+@@ -3322,5 +3327,34 @@
  		return $this->_allChannels;
  	}
  
@@ -27,18 +27,9 @@
 +				//ChatbotDisplay Message
 +				$YTembedLink = 'https://www.youtube.com/embed/'.$my_array_of_vars['v'].'?rel=0&border=0&autoplay=1';
 +
-+				$ch = curl_init();
-+				curl_setopt($ch, CURLOPT_URL, 'http://gdata.youtube.com/feeds/api/videos/'.$my_array_of_vars['v']);
-+				curl_setopt($ch, CURLOPT_HEADER, 0);
-+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-+				$response = curl_exec($ch);
-+				curl_close($ch);
-+				if ($response) {
-+					$xml   = new SimpleXMLElement($response);
-+					$YouTubetitle = (string) $xml->title;
-+				} else {
-+					// Error handling.
-+				}
++				$fetch_title = file_get_contents("http://youtube.com/get_video_info?video_id=".$my_array_of_vars['v']);
++				parse_str($fetch_title, $data);
++				$YouTubetitle = stripslashes($data['title']);
 +
 +				$this->insertCustomMessage(
 +					$this->getUserID(),
@@ -57,5 +48,6 @@
 +		}
 +	}
  }
- ?>
+-?>
 \ No newline at end of file
++?>
